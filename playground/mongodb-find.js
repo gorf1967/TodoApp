@@ -20,7 +20,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client)=>{
     //     console.log('unable to fetch count', err);
     // });
     db.collection('Users').find({
-        name: 'Ronnie'
+        _id: new ObjectID('5a9c214f7f21b808b970aef8') 
     }).toArray().then((docs)=>{
         console.log("DOCS:");
         console.log(JSON.stringify(docs,undefined,2));
