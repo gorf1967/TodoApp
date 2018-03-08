@@ -7,6 +7,10 @@ let {User} = require('./models/user');
 let app = express();
 app.use(bodyParser.json());
 ///  http verbs
+app.get('/',(req,res)=>{
+    res.send('Hello App');
+});
+
 app.post('/todos',(req,res)=>{
     var todo = new Todo({
         text: req.body.text
@@ -23,3 +27,6 @@ app.post('/todos',(req,res)=>{
 app.listen(3010,()=>{
     console.log('Server listening on port 3010');
 })
+
+
+module.exports = {app};
