@@ -25,27 +25,18 @@ app.get('/todos',(req,res)=>{
 
 //let id = '5aa15e0aed9d9d2c62296b4e';
 app.get('/todos/:id',(req,res)=>{
-    var todo = new Todo({
-        _id: req.params.id
+    var id = req.params.id;
+    if(!ObjectID.isValid(id)){
+        return res.status(404).send();
+    }
+    Todo.findById(id).then((doc)=>{   
+        if(!doc){
+            return res.status(404).send(doc);
+        }
+        res.send({doc});
+    }).catch((e)=>{
+        res.status(400).send();
     });
-
-    Todo.findById(req.params.id).then((doc)=>{   
-        if(doc){
-            res.send(doc);
-        }
-        res.status(404).send('not found');
-    },(e)=>{
-        if(!ObjectID.isValid(req.params.id)){
-            return res.status(400).send(e);
-        }
-     //   res.status(404).send(e);
-    })
-
-//   if(!ObjectID.isValid(id)){
-//      // console.log('invalid Id');
-//       return res.status(404).send();
-//   }  
-//   res.send('<div>hello</>');
 
 })
 
