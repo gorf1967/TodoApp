@@ -6,6 +6,7 @@ const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 const app = express();
+const port = process.env.port || 3010;
 app.use(bodyParser.json());
 ///  http verbs
 app.get('/',(req,res)=>{
@@ -53,8 +54,8 @@ app.post('/todos',(req,res)=>{
     console.log(req.body);
 })
 
-app.listen(3010,()=>{
-    console.log('Server listening on port 3010');
+app.listen(port,()=>{
+    console.log('Server listening on port ' + port);
 })
 
 
