@@ -6,11 +6,11 @@ const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 const app = express();
-const port = process.env.port || 3010;
+const port = process.env.PORT || 3010;
 app.use(bodyParser.json());
 ///  http verbs
 app.get('/',(req,res)=>{
-    res.send('Hello App');
+    res.send('Hello Betty');
 });
 
 app.get('/todos',(req,res)=>{
