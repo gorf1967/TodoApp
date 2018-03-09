@@ -8,6 +8,9 @@
     "test": "mocha server/**/*.tests.js",
     "test-watch": "nodemon --exec 'node test'"
   },
+  "engines": {
+    "node": "8.9.4"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
