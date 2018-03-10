@@ -1,13 +1,16 @@
+require('./config/config');
+console.log("env *****",env);
+
 const _ = require('lodash');
 const {ObjectID} = require('mongodb');
 const express = require('express');
 const bodyParser = require('body-parser');
 const {mongoose} = require('./db/mongoose');
 const {Todo} = require('./models/todo');
-const {User} = require('./models/user');
 
+const {User} = require('./models/user');
 const app = express();
-const port = process.env.PORT || 3010;
+const port = process.env.PORT;
 app.use(bodyParser.json());
 ///  http verbs
 app.get('/',(req,res)=>{
